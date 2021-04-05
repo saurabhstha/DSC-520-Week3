@@ -1,6 +1,6 @@
 # Assignment: ASSIGNMENT 3
-# Name: Lastname, Firstname
-# Date: 2010-02-14
+# Name: Shrestha, Saurabh
+# Date: 2021-03-04
 
 ## Load the ggplot2 package
 library(ggplot2)
