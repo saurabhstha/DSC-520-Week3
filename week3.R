@@ -55,15 +55,15 @@ new_sd <- sd(week3$HSDegree)
 normal <- dnorm (x = new_x, mean = new_mean, sd = new_sd)
 lines(new_x, normal + new_multiplier[1], col = "red", lwd = 2)
 
-sd_x <- seq(new_mean -2 * new_mean + 3 * new_sd, by = new_sd)
-sd_y <- dnorm(x = sd_x, mean = new_mean, sd = new_sd) * new_multiplier[1]
+std_x <- seq(new_mean -2 * new_mean + 3 * new_sd, by = new_sd)
+std_y <- dnorm(x = std_x, mean = new_mean, sd = new_sd) * new_multiplier[1]
 
-segments(x0 =sd_x, y0 = 0, x1 = sd_x, y1 =sd_y, col = "red", lwd = 2)
+segments(x0 =sd_x, y0 = 0, x1 = std_x, y1 =std_y, col = "red", lwd = 2)
 
 
 # Explain whether a normal distribution can accurately be used as a model for this data.
 "   No. Normal distribution cannot be used as a model this data because the data
-seems to be a negatively skewed one. Also, as evident from the above graph, the
+seems to be a negatively skewed one. Based on the graph, the
 histogram is not of the same pattern as the normal curve."
 
 #Create a Probability Plot of the HSDegree variable.
@@ -85,9 +85,8 @@ library(pastecs)
 stat.desc(week3$HSDegree, basic = FALSE, desc = TRUE, norm = TRUE, p=0.95)
 
 #In several sentences provide an explanation of the result produced for skew, kurtosis, and z-scores. In addition, explain how a change in the sample size may change your explanation?
-    "The value of skewness is -1.674767e+00 (<0) which implies that distribution is
-negatively skewed.
-The value of kurtosis is 4.352856e+00 (>3) which implies the distribution
-is leptokurtic.
-Also, Z-Score = 8.7736 and p-value is almost zero. Hence null hypothesis is rejected of data being normal distributed.s of data being normally distributed."
+    "The value of skewness is -1.674767e+00  which implies that distribution is
+negatively skewed.The value of kurtosis is 4.352856e+00 which implies the distribution
+is leptokurtic. In our case, Z-Score is 8.7736. Hence null hypothesis is rejected of data being normal distributed.s of data being normally distributed. With the change in sample size, the skewness could change in either direction
+based on sample received."
 
