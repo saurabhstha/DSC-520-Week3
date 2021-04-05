@@ -15,7 +15,7 @@ str(week3)
 nrow(week3)
 ncol(week3)
 
-#iii Create a Histogram of the HSDegree variable using the ggplot2 package.
+#Create a Histogram of the HSDegree variable using the ggplot2 package.
 # Set a bin size for the Histogram.
 # Include a Title and appropriate X/Y axis labels on your Histogram Plot.
 ggplot(week3, aes(x= week3$HSDegree)) + geom_histogram()
@@ -25,7 +25,7 @@ ggplot(week3, aes (x = week3$HSDegree)) +geom_histogram(binwidth = 6, color = "b
 # Answer the following questions based on the Histogram produced:
 # Based on what you see in this histogram, is the data distribution unimodal?
       "Yes,it can be seen that the data distribution is unimodal(has more than 1 mode), with the mode lying
-between 87 -90 HS Degree."
+between 86 to 90 HS Degree."
 
 #  Is it approximately symmetrical?
 "     No, from the histogram, it does not seem to be symmetrical in nature(is not similarly divided).
@@ -44,26 +44,20 @@ new_hist <- hist(week3$HSDegree)
 new_multiplier <- new_hist$counts / new_hist$density
 new_density <- density(week3$HSDegree)
 new_density$y <- new_density$y * new_multiplier[1]
-
 plot(new_hist)
 lines(new_density)
-
-new_x <- seq(min(week3$HSDegree), max(week3$HSDegree), length.out = 80)
+new_x <- seq(min(week3$HSDegree), max(week3$HSDegree), length.out = 70)
 new_mean <- mean(week3$HSDegree)
 new_sd <- sd(week3$HSDegree)
-
 normal <- dnorm (x = new_x, mean = new_mean, sd = new_sd)
 lines(new_x, normal + new_multiplier[1], col = "red", lwd = 2)
-
 std_x <- seq(new_mean -2 * new_mean + 3 * new_sd, by = new_sd)
 std_y <- dnorm(x = std_x, mean = new_mean, sd = new_sd) * new_multiplier[1]
-
 segments(x0 =sd_x, y0 = 0, x1 = std_x, y1 =std_y, col = "red", lwd = 2)
-
 
 # Explain whether a normal distribution can accurately be used as a model for this data.
 "   No. Normal distribution cannot be used as a model this data because the data
-seems to be a negatively skewed one. Based on the graph, the
+seems to be a negatively skewed. Based on the graph, the
 histogram is not of the same pattern as the normal curve."
 
 #Create a Probability Plot of the HSDegree variable.
@@ -87,6 +81,6 @@ stat.desc(week3$HSDegree, basic = FALSE, desc = TRUE, norm = TRUE, p=0.95)
 #In several sentences provide an explanation of the result produced for skew, kurtosis, and z-scores. In addition, explain how a change in the sample size may change your explanation?
     "The value of skewness is -1.674767e+00  which implies that distribution is
 negatively skewed.The value of kurtosis is 4.352856e+00 which implies the distribution
-is leptokurtic. In our case, Z-Score is 8.7736. Hence null hypothesis is rejected of data being normal distributed.s of data being normally distributed. With the change in sample size, the skewness could change in either direction
-based on sample received."
+is leptokurtic. In our case, Z-Score is 8.7736. Hence null hypothesis is rejected because of data being normal distributed. With the change in sample size, the skewness could change in
+because the sample size decreases the absolute value of the skewness and kurtosis as the sampling distribution increases.
 
